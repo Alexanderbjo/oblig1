@@ -64,11 +64,60 @@ public class oblig1 {
         }
     }
 
-    public static void rotasjon(char[] a){
-        for(int i = 0; i < a.length-1; i++){
-            a[i] = a[i+1];
-            a[0] = a[a.length];
+    public static void rotasjon(char[] a, int k){
+
+        while(k<0){
+            for(int i = a.length-1; i<=1; i--) {
+                a[i-1] = a[i];
+                a[a.length] = a[0];
+                k++;
+                }
+            }
+        while(k > 0){
+            for(int i = 0; i <= a.length-1; i++){
+                a[i] = a[i+1];
+                a[0] = a[a.length];
+                k--;
+            }
         }
+    }
+    public static String flett(String s, String t){
+        StringBuilder mergedString = new StringBuilder();
+
+        for(int i = 0; i < s.length() || i<t.length(); i++){
+
+            if( s.length() > 0 ){
+                mergedString.append(s.charAt(i));
+            }
+
+            if( t.length() > 0 ){
+                mergedString.append(s.charAt(i));
+            }
+        }
+        return mergedString.toString();
+    }
+    public static String flett(String... s){
+        return null;
+    }
+
+    public static int[] indekssortering(int[] a){
+        int k = 0;
+        int u = 0;
+        int[] indekser = new int[a.length];
+        for (int i=1; i < a.length; i++) {
+            for(int j = 0; j < a.length; j++){
+                if (a[i] > a[j]) {
+                    k = a[i];
+                    a[i] = a[j];
+                    a[j] = k;
+                    u = indekser[i];
+                    indekser[i] = indekser[j];
+                    indekser[j] = u;
+
+                }
+            }
+        }
+    return indekser;
     }
 
 }
